@@ -12,6 +12,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Currency;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Spinner spinnerAge;
@@ -106,6 +109,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         }
 
-        textViewPremium.setText(String.valueOf(premium));
+        Currency currency = Currency.getInstance(Locale.getDefault());
+        String symbol = currency.getCurrencyCode();
+
+        textViewPremium.setText("Premium" + "" + symbol + "" + premium);
     }
 }
